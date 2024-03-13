@@ -34,7 +34,7 @@ const origineDataMapper = {
         console.log('updateOrigine', updateOrigine);
         console.log('id', id);
         
-        let sqlQuery = "UPDATE origine name=$3 country=$2 WHERE id = $1 RETURNING *;";
+        let sqlQuery = "UPDATE origine SET name=$2 country=$3 WHERE id = $1 RETURNING *;";
         let values = [id, updateOrigine.name, updateOrigine.country];
         let origine;
         let error;
@@ -47,7 +47,7 @@ const origineDataMapper = {
             error = err;
         }
 
-        return { error, theme};
+        return { error, origine};
     }
 };
 //export de origineDataMapper
