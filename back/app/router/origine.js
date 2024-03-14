@@ -7,13 +7,13 @@ const router = express.Router;
 router.get('/', origineController.getAll);
 
 //Accéder à une origine par son ID
-router.get('/', origineController.get);
+router.get('/:id', origineController.get);
 
 //Créer une origine
 router.post('/', origineController.add);
 
 //Modifier une origine
-router.put('/', origineController.update);
+router.put('/:id', origineController.update);
 
 //exportation du router
 module.exports = router;
