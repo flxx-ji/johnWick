@@ -10,7 +10,7 @@ router.get('/', origineController.getAll);
 router.get('/:id', origineController.get);
 
 //Créer une origine
-router.post('/', origineController.add);
+router.post('/', origineController.create);
 
 //Modifier une origine
 router.put('/:id', origineController.update);
