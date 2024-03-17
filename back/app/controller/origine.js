@@ -16,9 +16,9 @@ const controller = {
     },
 
 
-    async get(req, res, next) {
+    async getById(req, res, next) {
         //Je récupère toutes les origines par leur ID
-        const { error, result } = await origineDataMapper.get(req.params.id);
+        const { error, result } = await origineDataMapper.getById(req.params.id);
          
         // Si j'ai une erreur
         if (error) {
