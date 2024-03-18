@@ -14,4 +14,7 @@ router.post('/', personnageController.add);
 //Mise à jour personnage
  router.put('/:id', personnageController.update);
 
+ //Récupération de tous les personnages par leur origine
+ router.get('/origine/:origineId/personnage', personnageController.getAllPersonnageByOrigine);
+
 module.exports = router;
