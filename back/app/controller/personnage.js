@@ -1,4 +1,6 @@
 const { personnageDataMapper} = require ("../datamapper");
+
+const { personnageOrigineDataMapper } = require ("../datamapper");
  
 const controller = {
 
@@ -69,6 +71,25 @@ const controller = {
 
          
     },
+
+    //récuperer les personnages par leur origine 
+    
+   async getAllPersonnageByOrigine(req, res, next) {
+    //Recuperation de tous les personnages d'une origine 
+    const { error, result} = await personnageOrigineDataMapper.getAllPersonnageByOrigin(
+    
+    req.params.origineId
+    );
+
+    //si j'ai une erreur
+    if (error) {
+    //alors j'ai un msg d'erreur
+    next(error);
+    } else {
+    //sinon j'obtient le resultat
+    res.json(result);
+    }
+   }
 }
 
 

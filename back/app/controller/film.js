@@ -45,7 +45,7 @@ const controller = {
     const newFilm = req.body;
     //J'retourne le film dans la bdd avec son ID
 
-    const { error, post } = await filmDataMapper.create(newFilm);
+    const { error, film} = await filmDataMapper.create(newFilm);
 
     try {
         newFilm.category.map(
@@ -86,12 +86,13 @@ const controller = {
         res.json(film);
     }
    },
-
+    //récuperer les personnages par film
+    
    async getAllPersonnageByFilm(req, res, next) {
     //Recuperation de tous les personnages d'un film 
     const { error, result} = await filmDataMapper.getAllPersonnageByFilm(
     
-    req.params.personnageId
+    req.params.filmId
     );
 
     //si j'ai une erreur
@@ -106,5 +107,5 @@ const controller = {
  
 };
 
-modules.exports = controller; 
+module.exports = controller; 
 
