@@ -21,11 +21,12 @@ const filmDataMapper = {
 
         return await getSingleResult(sqlQuery, values);
     },
-
+    // mise à jour d'un film 
+    
     async update(id,updateFilm) {
         console.log('updateFilm', updateFilm);
         console.log('id', id); 
-        let sqlQuery = "UPDATE film SET name=1$ year=2$ WHERE id = $3 RETURNING *;";
+        let sqlQuery = "UPDATE film SET name=$1 year=$2 WHERE id = $3 RETURNING *;";
         let values = [id, updateFilm.name, updateFilm.year];
         let film;
         let error;
