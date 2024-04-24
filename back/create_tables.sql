@@ -22,6 +22,17 @@ CREATE TABLE
     id serial PRIMARY KEY,
     nom_origine text NOT NULL
  );
+
+ `//Création de la table "Admin"`
+ CREATE TABLE
+ IF NOT EXISTS "Admin" (
+   id serial PRIMARY KEY,
+   nom text NOT NULL,
+   email text NOT NULL,
+   mot_de_passe text NOT NULL,
+   date_création timestamp NOT NULL DEFAULT CURRENT-TIMESTAMP
+ );
+ 
 `//creation de la table d'association "FilmPersonnage"`
 CREATION TABLE
  IF NOT EXISTS "FilmPersonnage" (
