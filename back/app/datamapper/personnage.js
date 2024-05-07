@@ -21,17 +21,17 @@ const personnageDataMapper = {
     // retourne le nouveau personnage
     
     async add(personnageAdd) {
-        const sqlQuery = `INSERT INTO "personnage"(nom, origine, role) VALUES ($1, $2, $3) 
+        const sqlQuery = `INSERT INTO "personnage"(name, origine, role) VALUES ($1, $2, $3) 
          RETURNING *;`
 
-        const values = [personnageAdd.nom, personnageAdd.origine, personnageAdd.role];
+        const values = [personnageAdd.name, personnageAdd.origine, personnageAdd.role];
 
         return await getResult(sqlQuery, values);
     },
 
     async update(id, updatePersonnage) {
-        const sqlQuery = `UPDATE personnage SET nom = $2, origine = $3, role = $4 WHERE id = $1 RETURNING *`;
-        const values = [id, updatePersonnage.nom, updatePersonnage.origine, updatePersonnage.role];
+        const sqlQuery = `UPDATE personnage SET name = $2, origine = $3, role = $4 WHERE id = $1 RETURNING *`;
+        const values = [id, updatePersonnage.name, updatePersonnage.origine, updatePersonnage.role];
         return await getResult(sqlQuery, values)
     }
 };
